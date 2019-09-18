@@ -1,35 +1,35 @@
 
 $(document).ready(function() {
-	
-	//carica tutte le stanze
+
+	//carica i pagamenti
+	getPayment();
+
+    // $(document).on("click",".delete_room",deleteRoom);
+});
+
+function getPayment() {
 	$.ajax({
 		url: "API.php",
 		method: "GET",
 		success: function(data) {
-			printGuest(data);
+			printPayment(data);
 		}
 	});
+}
 
-    $(document).on("click",".delete_room",deleteRoom);
-});
+function printPayment(data) {
+	// init handlebars
+	var source   = document.getElementById("item-template").innerHTML;
+	var template = Handlebars.compile(source);
 
-
-function printGuest(data) {
-	var destinazione = $(".ospiti");
-
-	$("li").remove();
-
-	for (var i = 0; i < data.length; i++) {
-		var stanza = data[i];
-		var stampa =
-			"<li data-id='" + stanza.id + "'>" +
-				"<p>Numero stanza: " + stanza.room_number + "</p>" +
-				"<p>Piano: " + stanza.floor + "</p>" +
-				"<p>Letti: " + stanza.beds + "</p>" +
-			"<button class='delete_room'>Elimina stanza</button></li>";
-		//aggiungo album all'HTML
-		destinazione.append(stampa);
+	for (var i in data) {
+		var payment = data[i];
+		// creo template coi dati
+		var html = template(payment);
+		// li aggiungo alla pagina
+		$("." + payment.status).append(html);
 	}
+	
 }
 
 function deleteRoom() {
@@ -51,12 +51,3 @@ function deleteRoom() {
 		}
 	});
 }
-
-// SELECT paganti.name, paganti.lastname, paganti.address, pagamenti.price, stanze.room_number
-// FROM pagamenti
-// INNER JOIN paganti
-// ON pagamenti.pagante_id = paganti.id
-// INNER JOIN prenotazioni
-// ON pagamenti.prenotazione_id = prenotazioni.id
-// INNER JOIN stanze
-// ON prenotazioni.stanza_id = stanze.id

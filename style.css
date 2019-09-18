@@ -10,6 +10,36 @@
 #main-container {
 	width: 100vw;
 	height: 100vh;
-	padding: 50px 25px;
+	padding: 50px;
 	overflow: auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.type {
+	margin: 20px 0;
+	padding: 5px 20px 10px;
+}
+
+h3 {
+	text-align: center;
+	border-bottom: 1px solid darkgrey;
+	font-size: 30px;
+	letter-spacing: 2px;
+}
+
+.payment {
+	border-bottom: 1px solid darkgrey;
+}
+
+.pending {
+	background-color: #d8c569;
+}
+
+.rejected {
+	background-color: #e0aaaa;
+}
+
+.accepted {
+	background-color: #a7d4ad;
 }

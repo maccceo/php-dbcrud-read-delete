@@ -20,11 +20,24 @@
     <script src="script.js" charset="utf-8"></script>
     <!-- TEMPLATE: MESSAGE MENU -->
     <script id="item-template" type="text/x-handlebars-template">
+      <div class="payment">
+        <p>Pagamento n°{{id}}</p>
+        <p>Prenotazione n°{{prenotazioni_id}} a nome di <strong>{{name}} {{lastname}}</strong></p>
+        <p>Prezzo: ${{price}}</p>
+      </div>
     </script>
   </head>
   <body>
   	<div id="main-container">
-    
+      <div class="type pending">
+        <h3>Status: pending</h3>
+      </div>
+      <div class="type rejected">
+        <h3>Status: rejected</h3>
+      </div>
+      <div class="type accepted">
+        <h3>Status: accepted</h3>
+      </div>
     </div>
   </body>
 </html>
