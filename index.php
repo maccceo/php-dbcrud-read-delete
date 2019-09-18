@@ -20,10 +20,11 @@
     <script src="script.js" charset="utf-8"></script>
     <!-- TEMPLATE: MESSAGE MENU -->
     <script id="item-template" type="text/x-handlebars-template">
-      <div class="payment">
+      <div class="payment" data-id="{{id}}">
         <p>Pagamento n°{{id}}</p>
         <p>Prenotazione n°{{prenotazioni_id}} a nome di <strong>{{name}} {{lastname}}</strong></p>
         <p>Prezzo: ${{price}}</p>
+        <span class="delete_payment">X</span>
       </div>
     </script>
   </head>

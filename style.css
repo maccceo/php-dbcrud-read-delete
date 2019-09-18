@@ -30,6 +30,18 @@ h3 {
 
 .payment {
 	border-bottom: 1px solid darkgrey;
+	position: relative;
+}
+
+.delete_payment {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	cursor: pointer;
+}
+
+.delete_payment:hover {
+	font-weight: bold;
 }
 
 .pending {

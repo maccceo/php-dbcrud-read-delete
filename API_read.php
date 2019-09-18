@@ -1,5 +1,4 @@
 <?php 
-
     include ('API_header.php');
 
     $query = "
@@ -15,7 +14,7 @@
     //oggetto complesso con anche i risultati dell'API
     $res = $conn -> query($query);
 
-    // se mySQL ha passato qualcosa e ha delle righe procedi
+    // se il server ha passato qualcosa e ha delle righe procedi
     if ($res && $res -> num_rows > 0) {
 
         $results = [];
